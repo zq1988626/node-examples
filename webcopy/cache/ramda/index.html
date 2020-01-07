@@ -1,0 +1,148 @@
+<!DOCTYPE html><html class="home-page"><head><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1" name="viewport"><title>Ramda Documentation</title><link href="./style.css" rel="stylesheet" type="text/css"></head><body><input id="open-nav" type="checkbox"><header class="navbar navbar-fixed-top navbar-inverse container-fluid"><div class="container-fluid"><div class="navbar-header"><label class="open-nav" for="open-nav"></label><a class="navbar-brand" href="#"><strong>Ramda</strong><span class="version"> v0.26.1</span></a></div><ul class="nav navbar-nav navbar-left"><li class="active"><a href="./">Home</a></li><li><a href="./docs/">Documentation</a></li><li><a href="./repl/">Try Ramda</a></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="http://functional-programming.cn" target="_blank">中文论坛</a></li><li><a href="https://github.com/ramda/ramda">GitHub</a></li><li><a href="https://gitter.im/ramda/ramda">Discuss</a></li></ul></div></header><main class="container"><article><h1 id="ramda-">Ramda 中文</h1>
+<p>一款实用的 JavaScript 函数式编程库。</p>
+<p><a href="https://travis-ci.org/ramda/ramda"><img src="https://travis-ci.org/ramda/ramda.svg?branch=master" alt="Build Status"></a>
+<a href="https://www.npmjs.org/package/ramda"><img src="https://badge.fury.io/js/ramda.svg" alt="npm module"></a>
+<a href="https://david-dm.org/ramda/ramda"><img src="https://david-dm.org/ramda/ramda.svg" alt="dependencies"></a>
+<a href="https://gitter.im/ramda/ramda?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join_Chat.svg" alt="Gitter"></a></p>
+<h2 id="why-ramda-">Why Ramda?</h2>
+<p><img src="https://ramdajs.com/ramdaFilled_200x235.png" 
+     width="170" height="190" align="right" hspace="12" /></p>
+<p>目前已经存在许多优秀的函数式的库。通常它们作为通用工具包，可以用于多种编程范式。Ramda 的目标更为专注：专门为函数式编程风格而设计，更容易创建函数式 pipeline、且从不改变用户已有数据。</p>
+<h2 id="what-s-different-">What&#39;s Different?</h2>
+<p>Ramda 主要特性如下：</p>
+<ul>
+<li><p>Ramda 强调更加纯粹的函数式风格。数据不变性和函数无副作用是其核心设计理念。这可以帮助你使用简洁、优雅的代码来完成工作。</p>
+</li>
+<li><p>Ramda 函数本身都是自动柯里化的。这可以让你在只提供部分参数的情况下，轻松地在已有函数的基础上创建新函数。</p>
+</li>
+<li><p>Ramda 函数参数的排列顺序更便于柯里化。要操作的数据通常在最后面。</p>
+</li>
+</ul>
+<p>最后两点一起，使得将多个函数构建为简单的函数序列变得非常容易，每个函数对数据进行变换并将结果传递给下一个函数。Ramda 的设计能很好地支持这种风格的编程。</p>
+<h2 id="-">简介</h2>
+<ul>
+<li><a href="http://buzzdecafe.github.io/code/2014/05/16/introducing-ramda">Introducing Ramda</a> by Buzz de Cafe <a href="https://adispring.coding.me/2017/06/25/Introducing-Ramda/">中文</a></li>
+<li><a href="http://fr.umio.us/why-ramda/">Why Ramda?</a> by Scott Sauyet <a href="https://adispring.coding.me/2017/06/25/Why-Ramda/">中文</a></li>
+<li><a href="http://fr.umio.us/favoring-curry/">Favoring Curry</a> by Scott Sauyet <a href="https://adispring.coding.me/2017/06/27/Favoring-Curry/">中文</a></li>
+<li><a href="https://hughfdjackson.com/javascript/why-curry-helps/">Why Curry Helps</a> by Hugh Jackson <a href="https://adispring.coding.me/2017/06/28/Why-Curry-Helps/">中文</a></li>
+<li><a href="https://www.youtube.com/watch?v=m3svKOdZijA&amp;app=desktop">Hey Underscore, You&#39;re Doing It Wrong!</a> by Brian Lonsdorf</li>
+<li><a href="http://randycoulman.com/blog/categories/thinking-in-ramda">Thinking in Ramda</a> by Randy Coulman <a href="https://adispring.coding.me/categories/Thinking-in-Ramda/">中文</a></li>
+</ul>
+<h2 id="-">理念</h2>
+<p>使用 Ramda 时，应该感觉像使用原生 JavaScript 一样，它是实用且函数式的 JavaScript。Ramda 没有在字符串中引入 lambda 表达式，也没有借用 consed 列表，更不是要移植所有的 Clojure 函数。</p>
+<p>Ramda 基本的数据结构都是原生 JavaScript 对象，我们常用的集合是 JavaScript 的数组。Ramda 还保留了许多其他原生 JavaScript 特性，例如，函数是具有属性的对象。</p>
+<p>函数式编程优势主要体现在数据不变性和函数无副作用两方面。虽然 Ramda 没有对此特别加强，但它在这两方面支持的非常好。</p>
+<p>我们尽量让实现（编程和 API 实现）简洁、优雅。但 API 为王。为此我们牺牲了大量优雅、简洁的实现。</p>
+<p>最后，Ramda 非常注重运行性能。可靠和快速的实现胜过过于强调函数式的纯度。（译者注：<a href="https://github.com/CrossEye/eweda">Eweda</a> 过于在意实现的函数式纯度，而失去了实用价值）</p>
+<h2 id="-">安装</h2>
+<p>使用 node：</p>
+<pre><code class="lang-bash">$ npm install ramda
+</code></pre>
+<p>然后在 console 中使用：</p>
+<pre><code class="lang-javascript">const R = require(&#39;ramda&#39;);
+</code></pre>
+<p>直接在浏览器中使用：</p>
+<pre><code class="lang-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>或使用最小化版本：</p>
+<pre><code class="lang-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>或从 CDN 上获取：</p>
+<pre><code class="lang-html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/ramda/0.26.0/ramda.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>或使用 <a href="http://jsdelivr.com">jsDelivr</a> 的以下任意链接：</p>
+<pre><code class="lang-html">&lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@0.26.0/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@0.26/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>（注意，使用 <code>最新</code> 的版本可能会带来很大的风险，ramda API 的更改可能会对以前代码造成破坏）</p>
+<p>这些脚本标签会在浏览器中添加一个全局变量 <code>R</code>。</p>
+<p>或者也可以借助 <a href="https://github.com/ramda/ramda/blob/master/BOOKMARKLET.md">the bookmarklet</a>，将 ramda 注入到几乎任何不安全的网站。</p>
+<p><strong>0.25 及以后版本注意事项</strong></p>
+<p>Ramda 在 0.25 以后，不会再提供默认输出（default export）。所以不要再用 <code>import R from &#39;ramda&#39;</code>，而应该使用 <code>import * as R from &#39;ramda&#39;</code> 引入 ramda。或者更好的方式是，通过 <code>import { functionName } from &#39;ramda&#39;</code> 只引入必需的函数。</p>
+<h3 id="build-">Build (构建)</h3>
+<p>运行 <code>npm run build</code> 会生成 <code>es</code> 和 <code>src</code> 文件夹，并更新 <strong>dist/ramda.js</strong> 和 <strong>dist/ramda.min.js</strong></p>
+<h4 id="partial-build-">Partial Build (部分构建库 )</h4>
+<p>若想减小库大小，可以只使用部分函数来构建 Ramda 。Ramda 的构建系统使用命令行参数来支持部分构建。例如，当使用 <code>R.compose</code>, <code>R.reduce</code>, and <code>R.filter</code> 时，可以创建一个部分构建库：</p>
+<pre><code>npm run --silent partial-build compose reduce filter &gt; dist/ramda.custom.js
+</code></pre><p>上述命令需要安装 Node/io.js 和 ramda 的依赖（只需在部分构建开始前运行 <code>npm install</code>）。</p>
+<h2 id="-">文档</h2>
+<p>请查看 <a href="http://ramda.cn/docs/">API 文档</a>.</p>
+<p>也可以使用 <a href="https://github.com/ramda/ramda/wiki/Cookbook">Cookbook</a> 中的由 Ramda 构建的函数。</p>
+<h2 id="-">关于名字</h2>
+<p>好吧，因为我们喜欢羊，就是这样。名字要简洁、且未被占用。它可以是 <code>eweda</code>，然后我们被迫叫它 <em>eweda lamb!</em> ，但没有人想要这个名字。对于非英语国家的人，lambs 是羔羊，ewes 是母羊，rams 是公羊。所以 ramda 可能是一只成年的 lambda ...，也可能不是。（双关，既代表 lambda 表示式，也代表羔羊。愿 Ramda 发展壮大）</p>
+<h2 id="-">运行测试套件</h2>
+<p><strong>控制台（Console）:</strong></p>
+<p>要从控制台运行测试套件，需要安装 <code>mocha</code> ：</p>
+<pre><code>npm install -g mocha
+</code></pre><p>然后在项目根目录下调用：</p>
+<pre><code>mocha
+</code></pre><p>或者，如果已安装依赖：</p>
+<pre><code>npm install
+</code></pre><p>那么便可以运行测试（并获得详细的输出）：</p>
+<pre><code>npm test
+</code></pre><p><strong>浏览器（Browser）:</strong></p>
+<p>在浏览器中运行测试套件，只需打开 <code>test/index.html</code> 。</p>
+<p>或者，可以使用 <a href="https://github.com/airportyh/testem">testem</a> 在不同的浏览器（甚至是无界面浏览器）上测试，也可以使用测试的实时重载特性。 安装 testem （<code>npm install -g testem</code>）并运行。 打开浏览器中提供的链接，将会在终端中看到结果。</p>
+<p>如果已安装 <em>PhantomJS</em> ，则可以运行 <code>testem -l phantomjs</code> ，以完全无界面方式运行测试。</p>
+<h2 id="-">使用</h2>
+<p>对于 <code>v0.25</code> 及更高版本，可以导入整个库，或直接从库中选择 ES 模块：</p>
+<pre><code class="lang-js">import * as R from &#39;ramda&#39;
+
+const {identity} = R
+R.map(identity, [1, 2, 3])
+</code></pre>
+<p>利用解构导入 ramda 函数可能并不能阻止引入整个库。可以像下面这样手动挑选函数，只会引入 <code>identity</code> 运行所需的部分：</p>
+<pre><code class="lang-js">import identity from &#39;ramda/src/identity&#39;
+
+identity()
+</code></pre>
+<p>但手动引入函数太麻烦。大多数 bundlers (Webpack 和 Rollup 一类的打包器) 都会提供 tree-shaking 方法，用以删除未用到的 Ramda 代码，并减小打出包的体积。但它们的实际效果各异，实际对比可以<a href="https://github.com/scabbiaza/ramda-webpack-tree-shaking-examples">参考这里</a>。下面列出了一些最佳设置总结：</p>
+<ol>
+<li><p>Webpack + Babel - 使用 <a href="https://github.com/megawac/babel-plugin-ramda"><code>babel-plugin-ramda</code></a> 自动挑选函数。<a href="http://www.andrewsouthpaw.com/2018/01/19/ramda-tree-shaking-not-supported-out-of-the-box/">相关讨论</a>，<a href="https://github.com/AndrewSouthpaw/ramda-webpack-tree-shaking-examples/blob/master/07-webpack-babel-plugin-ramda/package.json">相关实例</a>。</p>
+</li>
+<li><p>仅使用 Webpack - 使用 <code>UglifyJS</code> plugin 和 <code>ModuleConcatenationPlugin</code> 来进行 tree-shaking。<a href="https://github.com/ramda/ramda/issues/2355">相关讨论</a>，<a href="https://github.com/scabbiaza/ramda-webpack-tree-shaking-examples/blob/master/06-webpack-scope-hoisted/webpack.config.js">相关实例</a>。</p>
+</li>
+<li><p>Rollup - 自身对 tree-shaking 支持的很好，不需要其他配置。<a href="https://github.com/scabbiaza/ramda-webpack-tree-shaking-examples/blob/master/07-rollup-ramda-tree-shaking/rollup.config.js">相关实例</a>。</p>
+</li>
+</ol>
+<h2 id="-">类型系统</h2>
+<ul>
+<li><a href="https://github.com/types/npm-ramda/">TypeScript</a></li>
+<li><a href="https://github.com/flowtype/flow-typed/tree/master/definitions/npm/ramda_v0.x.x">Flow</a></li>
+</ul>
+<h2 id="-">翻译</h2>
+<ul>
+<li><a href="http://ramda.cn/">Chinese(中文)</a></li>
+<li><a href="https://github.com/ivanzusko/ramda">Ukrainian(Українська)</a></li>
+<li><a href="https://github.com/Guck111/ramda">Russian(Русский)</a></li>
+</ul>
+<h2 id="-">致谢</h2>
+<p>感谢 <a href="http://www.jcphillipps.com">J. C. Phillipps</a> 为 Ramda 设计的标志。 Ramda 标志艺术品 &copy; 2014 J. C. Phillipps 。 创作共享协议 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>。</p>
+<h2 id="-">中文翻译</h2>
+<p><a href="https://adispring.coding.me/">王增迪</a>，<a href="https://github.com/ZhangCongjie">张聪杰</a>，<a href="https://github.com/MissSweety">张春晓</a>，<a href="https://github.com/csqian">陈申乾</a>，<a href="https://github.com/xuelangcxy">陈雪勇</a>。</p>
+<p>如果发现翻译不恰当的地方，恳请指正。也欢迎加入我们，一起维护 Ramda 中文网站。</p>
+<h2 id="ramda-">Ramda 企鹅讨论群</h2>
+<p>114706031</p>
+<p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+
+</article></main><script>window.gitter = {
+	chat: {
+		options: {
+			room: 'ramda/ramda'
+		}
+	}
+}
+</script><script async defer src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-97388892-1', 'auto');
+ga('send', 'pageview');
+</script><script>var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?f64268fd32ecd708159ae5467dc8099f";
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+})();</script></body></html>
