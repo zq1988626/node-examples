@@ -38,7 +38,7 @@ var post = function(option,data){
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36",
             "X-Requested-With": "XMLHttpRequest"
         }
-    };
+    });
 
     // Set up the request
     var post_req = http.request(post_options, function(res) {

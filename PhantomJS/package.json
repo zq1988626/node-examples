@@ -1,0 +1,15 @@
+{
+  "name": "phantomjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "html2img.js",
+  "scripts": {
+    "img": "node img.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "protoext": "^0.1.5"
+  }
+}

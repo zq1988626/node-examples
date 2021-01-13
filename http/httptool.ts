@@ -3,8 +3,8 @@
 
 import {request,RequestOptions,OutgoingHttpHeaders} from "http";
 import {stringify} from "querystring";
+import url from "url";
 
-const url = require("url");
 class CookieItem {
     constructor(){
 

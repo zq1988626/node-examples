@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>聊天室</title>
+  <style>
+      textarea:focus{
+        outline: 0;
+      }
+  </style>
+</head>
+<body>
+    <div id="app">
+        <page-main :contents="contents" @send="say"></page-main>
+    </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  <script>
+      var pageMain = {
+          props:{
+            contents:()=>({default:[]})
+          },
+          data(){
+            return {
+                shareurl:window.location.href,
+                inputs:"",
+                names:"匿名"
+            }
+          },
+          template:`
+            <div style="position: fixed;bottom:0;left:0;right:0;top:0;
+                display: flex;
+                flex-direction: column;"
+            >
+                <div style="font-size:10px;">
+                    地址：<a :href="shareurl">{{shareurl}}</a>
+                </div>
+                <div style="flex:1;overflow: auto;padding:0.5rem;">
+                    <div v-for="item in contentview" v-html="item"></div>
+                </div>
+                <div style="
+                    border-top:1px solid #ccc;
+                    display:flex;height:8rem;
+                    flex-direction: column;">
+                    <div>
+                        <input style="width:5rem;" v-model="names">
+                    </div>
+                    <textarea style="flex:1;height:0;border:0;padding:0.5rem;" 
+                        v-model="inputs" placeholder="在此输入消息"></textarea>
+                    <div style="text-align: right;padding-right:2rem;padding-bottom:0.5rem;">
+                        <button @click="say()">
+                            发送消息
+                        </button>
+                    </div>
+                </div>
+            </div>
+          `,
+          computed:{
+            contentview(){
+                return this.contents.map(item=>item.replace(/\n/g,"<br />"))
+            }
+          },
+          methods:{
+              say(){
+                  this.$emit("send",{
+                      name:this.names,
+                      message:this.inputs
+                  })
+              }
+          }
+      }
+
+
+      function createApp(el,api){
+        return new Vue({
+            el:el,
+            components:{
+                pageMain
+            },
+            data:function(){
+                return {
+                    contents:[]
+                }
+            },
+            created(){
+            },
+            methods:{
+                message(msgtype,msg){
+                    this.contents.push(msg)
+                },
+                say(data){
+                    api.say(data.name,data.message);
+                }
+            }
+        })
+      }
+
+      window.addEventListener("load",function(){
+        var app = createApp("#app",{
+            say:function(name,msg){
+                if (!msg) return
+                socket.emit('say', { my: `${name?`${name}：`:""} ${msg}`});
+            }
+        });
+
+        var socket = io.connect('//');
+
+        // 建立连接
+        // 监听 message 会话
+        socket.on('message', function (data) {
+            app.message("system",data.hello)
+        });
+
+        // 监听 news 会话
+        socket.on('news', function (data) {
+            app.message("news",data.hello)
+        });
+
+        // 监听吃饭会话
+        socket.on('eating', function (data) {
+            console.log(data);
+        });
+      })
+  </script>
+</body>
+</html>

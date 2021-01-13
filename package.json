@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "get-pixels": "^3.3.2",
+    "jimp": "^0.12.1",
+    "pngjs": "^5.0.0",
+    "request": "^2.88.2"
+  }
+}
