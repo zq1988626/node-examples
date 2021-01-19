@@ -1,0 +1,10 @@
+{
+  "name": "carlo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "carlo": "^0.9.46",
+    "puppeteer": "^5.5.0"
+  }
+}
