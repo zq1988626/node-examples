@@ -1,0 +1,17 @@
+{
+  "name": "react",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "xczq <290353142@qq.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/zq1988626/node-examples",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

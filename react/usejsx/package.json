@@ -1,0 +1,15 @@
+{
+  "name": "usejsx",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel --presets @babel/preset-react src/component-test.jsx --out-file dist/component-test.js",
+    "build:all": "babel --presets @babel/preset-react src --out-dir dist"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-react": "^7.12.10"
+  }
+}

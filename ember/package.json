@@ -1,0 +1,9 @@
+{
+  "name": "ember",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "ember-cli": "^3.24.0"
+  }
+}

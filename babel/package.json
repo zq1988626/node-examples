@@ -1,0 +1,16 @@
+{
+  "name": "babel",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/parser": "^7.12.11"
+  },
+  "dependencies": {
+    "@babel/code-frame": "^7.12.11",
+    "@babel/core": "^7.12.10",
+    "@babel/highlight": "^7.10.4",
+    "chalk": "^4.1.0",
+    "charcodes": "^0.2.0"
+  }
+}
